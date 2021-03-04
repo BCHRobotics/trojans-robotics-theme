@@ -1,0 +1,46 @@
+/* Custom css for robotics theme */
+
+/* Body */
+
+
+/* Header */
+
+#header.navbar {
+    background-color: #004087!important;
+}
+
+#navbar {
+    display: grid!important;
+    grid-template-columns: 1fr 80px 1fr;
+}
+
+#navbar li a {
+    color: white;
+    text-align: center;
+}
+
+#navbar ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#navbar li {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#navbar li hr {
+    height: 1px;
+    border-width: 0;
+    color: #ffbb1c;
+    background-color: #ffbb1c;
+    width: 80%;
+    margin: 22px 0 10% 10%;
+}
+
+#navbar .navbar-brand img {
+    width: 40px;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
