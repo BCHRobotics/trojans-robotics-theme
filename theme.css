@@ -2,45 +2,131 @@
 
 /* Body */
 
+body {
+    background-color: #001844;
+}
+
 
 /* Header */
 
 #header.navbar {
-    background-color: #004087!important;
-}
-
-#navbar {
-    display: grid!important;
-    grid-template-columns: 1fr 80px 1fr;
+    background-color: #003087!important;
 }
 
 #navbar li a {
     color: white;
+    font-size: 1.3em;
+}
+
+@media screen and (min-width: 768px) {
+
+    #navbar {
+        display: grid!important;
+        grid-template-columns: 1fr 80px 1fr;
+    }
+
+    #navbar ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #navbar li a {
+        text-align: center;
+    }
+
+    #header a.nav-sm {
+        display: none;
+    }
+
+    #navbar .navbar-brand img {
+        width: 40px;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    #navbar ul {
+        display: inline;
+    }
+
+    #navbar a.nav-md {
+        display: none;
+    }
+
+}
+
+/* Hero Image */
+
+body main#main {
+	margin-top: 0;
+}
+
+body main#main .hero-header {
+	height: 300px;
+}
+
+body.home main#main .hero-header {
+	height: 500px;
+    border-bottom: 3px solid #ffbb1c;
+}
+
+
+/* CTA */
+
+body.home main#main .hero-header .header-container .cta {
+	height: 200px;
+    /*background: rgba(0, 0, 0, 0.4);*/
+    padding: 40px;
+    border-radius: 10px;
+}
+
+body main#main .hero-header .header-container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	align-items: flex-end;
+}
+
+body.home main#main .hero-header .header-container {
+	align-items: center;
+	margin-left: 10%;
+}
+
+body main#main .hero-header .header-container {
+	color: white;	
+	font-weight: normal;
     text-align: center;
+	margin-bottom: 40px;
 }
 
-#navbar ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Content */
+
+body main#main .content-container {
+    color: white;
 }
 
-#navbar li {
-    display: grid;
-    grid-template-columns: 50% 50%;
+body main#main .content-container a {
+    color: white;
+    text-decoration: none;
 }
 
-#navbar li hr {
-    height: 1px;
-    border-width: 0;
-    color: #ffbb1c;
-    background-color: #ffbb1c;
-    width: 80%;
-    margin: 22px 0 10% 10%;
+hr {
+    background-color: #ffbb1c!important;
+    color: #ffbb1c!important;
+    height: 2px!important;
+    opacity: 1!important;
 }
 
-#navbar .navbar-brand img {
-    width: 40px;
-    height: auto;
-    margin-left: 20px;
-    margin-right: 20px;
+/* Footer */
+
+#footer {
+    background-color: #E6EAF3;
+    padding: 40px;
+}
+
+#footer .social a {
+    padding: 10px;
 }

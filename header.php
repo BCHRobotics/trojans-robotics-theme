@@ -27,9 +27,22 @@
 		<nav id="header" class="navbar navbar-expand-md <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
 			<div class="container">
 
+				<a class="navbar-brand nav-sm ml-3" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+					<?php
+						$header_logo = get_theme_mod( 'header_logo' ); // Get custom meta-value.
+						if ( ! empty( $header_logo ) ) :
+					?>
+						<img src="<?php echo esc_url( $header_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<?php
+						else :
+							echo esc_attr( get_bloginfo( 'name', 'display' ) );
+						endif;
+					?>
+				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="<?php _e( 'Toggle navigation', 'trojans-robotics-theme' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+				
 				
 				<div id="navbar" class="collapse navbar-collapse">
 					<?php
@@ -37,43 +50,38 @@
 						wp_nav_menu(
 							array(
 								'theme_location' => 'main-menu-left',
-								'container'      => 'div',
-								'container_class' => 'menu-left',
+								/*'container'      => 'div',
+								'container_class' => 'menu-left',*/
 								'menu_class'     => 'navbar-nav',
 								'items_wrap'      => '<ul class="menu nav">%3$s</ul>',
-								'after' => '<hr>',
 								'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
 								'walker'         => new WP_Bootstrap_Navwalker(),
 							)
 						);
 					?>
 
-					<div class="menu-brand">
-						<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php
-								$header_logo = get_theme_mod( 'header_logo' ); // Get custom meta-value.
-
-								if ( ! empty( $header_logo ) ) :
-							?>
-								<img src="<?php echo esc_url( $header_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<?php
-								else :
-									echo esc_attr( get_bloginfo( 'name', 'display' ) );
-								endif;
-							?>
-						</a>
-					</div>
+					<a class="navbar-brand nav-md" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+						<?php
+							$header_logo = get_theme_mod( 'header_logo' ); // Get custom meta-value.
+							if ( ! empty( $header_logo ) ) :
+						?>
+							<img src="<?php echo esc_url( $header_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+						<?php
+							else :
+								echo esc_attr( get_bloginfo( 'name', 'display' ) );
+							endif;
+						?>
+					</a>
 
 					<?php
 						// Loading WordPress Custom Menu (theme_location).
 						wp_nav_menu(
 							array(
 								'theme_location' => 'main-menu-right',
-								'container'      => 'div',
-								'container_class' => 'menu-right',
+								/*'container'      => 'div',
+								'container_class' => 'menu-right',*/
 								'menu_class'     => 'navbar-nav',
 								'items_wrap'      => '<ul class="menu nav">%3$s</ul>',
-								'before' => '<hr>',
 								'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
 								'walker'         => new WP_Bootstrap_Navwalker(),
 							)
@@ -84,7 +92,7 @@
 		</nav><!-- /#header -->
 	</header>
 	
-	<main id="main" class="container"<?php if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' style="padding-top: 100px;"'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' style="padding-bottom: 100px;"'; endif; ?>>
+	<main id="main" class=""<?php if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' style="padding-top: 100px;"'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' style="padding-bottom: 100px;"'; endif; ?>>
 		
 		<?php
 			// If Single or Archive (Category, Tag, Author or a Date based page).
